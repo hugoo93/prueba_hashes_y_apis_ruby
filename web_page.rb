@@ -2,8 +2,14 @@ require_relative 'request'
 
 api_key = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=AbDJ4yz4uugHls1v3PAXCMLeV4t8Rx1pBaCEpten'
 
-def build_web_page(url)
-    images = get_data("#{url}")
+def get_mars_rover_photos(key)
+    data = get_data("#{key}")
+
+    return data
+end
+
+def build_web_page(api_key)
+    images = get_mars_rover_photos(api_key)
 
     head = "<!doctype html>\n" +
             "<html lang='es'>\n" +
